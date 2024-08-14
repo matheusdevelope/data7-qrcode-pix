@@ -141,7 +141,11 @@
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get('data') || '';            
         }
-        
+
+        function adjustViewportHeight() {
+            document.body.style.height = `${window.innerHeight}px`;
+        }
+
         const content = getParameterByName();
         if (content) {
             let qrcode = new QRCode(document.getElementById('qrcode')); 
@@ -158,6 +162,10 @@
                 console.error('Erro ao copiar: ', err);
             });
         });
+
+        // Ajuste da altura da viewport
+        window.addEventListener('resize', adjustViewportHeight);
+        window.addEventListener('load', adjustViewportHeight);
     </script>
 </body>
 </html>
