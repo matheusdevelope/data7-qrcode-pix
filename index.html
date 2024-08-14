@@ -1,231 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIX - Se7e Sistemas</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" /> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        padding: 20px;
-        box-sizing: border-box;
-      }
-      h1 {
-        background-color: #007bff;
-        color: white;
-        padding: 20px;
-        border-radius: 5px;
-        text-align: center;
-        width: 100%;
-        max-width: 400px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-      #qrcode {
-        margin: 20px 0;
-        padding: 20px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        max-width: 100%;
-      }
-      #labelText {
-        font-weight: bold;
-        font-size: 18px;
-        color: #333;
-        text-align: center;
-        margin-bottom: 10px;
-      }
-      #contentText {
-        margin-bottom: 10px;
-        font-size: 16px;
-        color: #333;
-        word-wrap: break-word;
-        text-align: center;
-        background-color: #e9ecef;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-        width: 100%;
-        max-width: 400px;
-        box-sizing: border-box;
-      }
-      #contentHelpText {
-        margin-bottom: 20px;
-        font-size: 14px;
-        color: #555;
-        text-align: center;
-        max-width: 400px;
-        line-height: 1.5;
-      }
-      #copyButton {
-        background-color: #007bff;
-        color: white;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        max-width: 400px;
-        justify-content: center;
-        box-sizing: border-box;
-      }
-      #copyButton:hover {
-        background-color: #0056b3;
-      }
-      #copyButton i {
-        margin-right: 10px;
-        font-size: 20px;
-      }
-
-      #footer {
-        margin-top: 20px;
-        font-size: 12px;
-        color: #777;
-        text-align: center;
-        padding: 10px 0;
-      }
-
-      /* Estilos responsivos */
-      @media (max-width: 600px) {
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-sizing: border-box;
+        }
         h1 {
-          font-size: 24px;
-          padding: 15px;
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #qrcode {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
         }
         #labelText {
-          font-size: 16px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
         }
         #contentText {
-          font-size: 14px;
-          padding: 8px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+            word-wrap: break-word;
+            text-align: center;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
         }
         #contentHelpText {
-          font-size: 12px;
-          margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            max-width: 400px;
+            line-height: 1.5;
         }
         #copyButton {
-          font-size: 14px;
-          padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        #copyButton:hover {
+            background-color: #0056b3;
         }
         #copyButton i {
-          font-size: 18px;
-          margin-right: 8px;
+            margin-right: 10px;
+            font-size: 20px;
         }
-      }
+        
+        #footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+                padding: 15px;
+            }
+            #labelText {
+                font-size: 16px;
+            }
+            #contentText {
+                font-size: 14px;
+                padding: 8px;
+            }
+            #contentHelpText {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+            #copyButton {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+            #copyButton i {
+                font-size: 18px;
+                margin-right: 8px;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <h1>PIX - Se7e Sistemas</h1>
     <div id="qrcode"></div>
     <div id="labelText">Pix Copia e Cola:</div>
     <div id="contentText"></div>
-    <div id="contentHelpText">
-      Copie o conteúdo do QRCode e cole no aplicativo do seu banco para efetuar
-      o pagamento
-    </div>
+    <div id="contentHelpText">Copie o conteúdo do QRCode e cole no aplicativo do seu banco para efetuar o pagamento</div>
     <button id="copyButton"><i>📋</i> Copiar</button>
     <div id="footer">Feito com ❤️ por Se7e Sistemas Sinop</div>
 
     <script>
-      function getParameterByName() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get("data") || "";
-      }
+        function getParameterByName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('data') || '';            
+        }
 
-      function adjustViewportHeight() {
-        document.body.style.height = `${window.innerHeight}px`;
-      }
+        function adjustViewportHeight() {
+            document.body.style.height = `${window.innerHeight}px`;
+        }
 
-      const content = getParameterByName();
-      if (content) {
-        let qrcode = new QRCode(document.getElementById("qrcode"));
-        qrcode.makeCode(content);
-        document.getElementById("contentText").textContent = content;
-        getPayloadCobranca();
-      } else {
-        document.getElementById("qrcode").textContent =
-          "Nenhum conteúdo fornecido na URL.";
-      }
+        const content = getParameterByName();
+        if (content) {
+            let qrcode = new QRCode(document.getElementById('qrcode')); 
+            qrcode.makeCode(content);
+            document.getElementById('contentText').textContent = content;
+            // getPayloadCobranca()
+        } else {
+            document.getElementById('qrcode').textContent = 'Nenhum conteúdo fornecido na URL.';
+        }
 
-      function getPayloadCobranca() {
-        const pos_start = content.indexOf("br.gov.bcb.pix") + 18;
-        const pos_end = content.indexOf("5204000053039865802BR");
-        const url = "https://" + content.substring(pos_start, pos_end);
+        function getPayloadCobranca() {
+            const pos_start = content.indexOf('br.gov.bcb.pix') + 18
+            const pos_end = content.indexOf('5204000053039865802BR')
+            const url = content.substring(pos_start, pos_end)
+        }            
 
-        console.log("URL de consulta do payload:", url);
-
-        // Fazendo a requisição GET à URL obtida
-        fetch(url)
-          //   .then((response) => {
-          //     if (!response.ok) {
-          //       throw new Error("Erro na requisição: " + response.statusText);
-          //     }
-          //     console.log(response);
-
-          //     return response.json(); // Ou response.text(), dependendo do formato de resposta
-          //   })
-          //   .then((data) => {
-          //     console.log("Payload obtido:", data);
-          //     // Você pode agora processar o payload como necessário
-          //     // Por exemplo, atualizar a interface ou armazenar os dados
-          //   })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Erro na requisição: " + response.status);
-            }
-            console.log(response);
-
-            return response.blob();
-          })
-          .then((blob) => {
-            // Aqui, criamos um "FileReader" para ler o conteúdo do blob
-            const reader = new FileReader();
-            reader.onloadend = function () {
-              const jwt = reader.result;
-              console.log("JWT:", jwt); // O conteúdo do JWT será mostrado aqui
-            };
-            reader.readAsText(blob);
-          })
-          .catch((error) => {
-            console.error("Erro ao obter o payload:", error);
-          });
-      }
-
-      document
-        .getElementById("copyButton")
-        .addEventListener("click", function () {
-          navigator.clipboard.writeText(content).then(
-            function () {
-              const copyButton = document.getElementById("copyButton");
-              copyButton.textContent = "📋 Copiado!";
-              copyButton.style.backgroundColor = "#28a745";
-              setTimeout(function () {
-                copyButton.textContent = "📋 Copiar";
-                copyButton.style.backgroundColor = "#007bff";
-              }, 3000);
-            },
-            function (err) {
-              console.error("Erro ao copiar: ", err);
-            }
-          );
+        document.getElementById('copyButton').addEventListener('click', function() {
+        navigator.clipboard.writeText(content).then(function() {
+            const copyButton = document.getElementById('copyButton');
+            copyButton.textContent = '📋 Copiado!';
+            copyButton.style.backgroundColor = '#28a745';
+            setTimeout(function() {
+                copyButton.textContent = '📋 Copiar';
+                copyButton.style.backgroundColor = '#007bff';
+            }, 3000);
+        }, function(err) {
+            console.error('Erro ao copiar: ', err);
         });
+    });
 
-      // Ajuste da altura da viewport
-      window.addEventListener("resize", adjustViewportHeight);
-      window.addEventListener("load", adjustViewportHeight);
+        // Ajuste da altura da viewport
+        window.addEventListener('resize', adjustViewportHeight);
+        window.addEventListener('load', adjustViewportHeight);
     </script>
-  </body>
+</body>
 </html>
